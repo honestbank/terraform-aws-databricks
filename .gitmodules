@@ -1,0 +1,12 @@
+[submodule "modules/github.com/terraform-aws-subnet"]
+	path = modules/github.com/terraform-aws-subnet
+	url = https://github.com/honestbank/terraform-aws-subnet
+[submodule "modules/github.com/terraform-aws-iam"]
+	path = modules/github.com/terraform-aws-iam
+	url = https://github.com/honestbank/terraform-aws-iam
+[submodule "modules/terraform-aws-subnet"]
+	path = modules/terraform-aws-subnet
+	url = https://github.com/honestbank/terraform-aws-subnet
+[submodule "modules/terraform-aws-iam"]
+	path = modules/terraform-aws-iam
+	url = https://github.com/honestbank/terraform-aws-iam
