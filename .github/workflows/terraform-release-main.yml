@@ -1,0 +1,47 @@
+name: "Terraform - Release"
+on:
+  push:
+    branches: [main]
+env:
+  tf_version: "latest"
+  tf_working_dir: "."
+jobs:
+  terraform:
+    name: "terraform-release"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          token: ${{ secrets.ENGINEERING_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.ENGINEERING_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
+      - name: Release
+        if: github.event_name == 'push' && github.base_ref == 'main'
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          extra_plugins: |
+            @semantic-release/git@7.0.18
+            @semantic-release/exec@3.3.8
+            @semantic-release/changelog@3.0.0
