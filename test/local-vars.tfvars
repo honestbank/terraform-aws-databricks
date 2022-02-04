@@ -1,9 +1,0 @@
-databricks_account_username = "james@honestbank.com"
-databricks_account_password = "yhc5rje*ptz!pqz0ZRJ"
-databricks_account_id       = "c00e41a4-2270-4246-be89-376e24c2d150"
-private_subnet_cidrs        = ["172.0.1.0/24", "172.0.2.0/24"]
-aws_region                  = "ap-southeast-1"
-aws_role_arn                = "arn:aws:iam::509042517039:role/OrganizationAccountAccessRole"
-vpc_cidr                    = "172.0.0.0/16"
-prefix                      = "honest"
-public_subnet_cidr          = "172.0.3.0/24"

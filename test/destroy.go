@@ -20,7 +20,7 @@ func destroy(t *testing.T, terraformTempDir string, vars *map[string]interface{}
 		terraformDestroyOptions = &terraform.Options{
 			TerraformDir: terraformTempDir,
 			//VarFiles:     []string{"test/terratest.tfvars"},
-			VarFiles: []string{path + "/local-vars.tfvars"},
+			VarFiles: []string{path + "/terratest.tfvars"},
 			Vars:     *vars,
 			EnvVars: map[string]string{
 				"AWS_DEFAULT_REGION": "ap-southeast-1",
@@ -32,7 +32,7 @@ func destroy(t *testing.T, terraformTempDir string, vars *map[string]interface{}
 		terraformDestroyOptions = &terraform.Options{
 			TerraformDir: terraformTempDir,
 			//VarFiles:     []string{"test/terratest.tfvars"},
-			VarFiles: []string{path + "/local-vars.tfvars"},
+			VarFiles: []string{path + "/terratest.tfvars"},
 			EnvVars: map[string]string{
 				"AWS_DEFAULT_REGION": "ap-southeast-1",
 				//"TF_LOG":             "TRACE",
