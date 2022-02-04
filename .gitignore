@@ -471,3 +471,5 @@ lint/tmp/
 **/.external_modules
 
 .external_modules
+
+**/local-vars.tfvars

@@ -84,7 +84,7 @@ func ApplyVPC(t *testing.T) (string, []string, string, string) {
 	terraformInitOptions := &terraform.Options{
 		TerraformDir: terraformTempDir,
 		//VarFiles:     []string{"test/terratest.tfvars"},
-		VarFiles: []string{path + "/local-vars.tfvars"},
+		VarFiles: []string{path + "/terratest.tfvars"},
 		EnvVars: map[string]string{
 			"AWS_DEFAULT_REGION": "ap-southeast-1",
 			//"TF_LOG":             "TRACE",
@@ -119,6 +119,7 @@ func TestTerraformCodeInfrastructureInitialCredentials(t *testing.T) {
 	if err != nil {
 		log.Println(err)
 	}
+
 	tfvars := map[string]interface{}{
 		"private_subnet_ids": private_subnets,
 		"public_subnet_id":   public_subnet,
@@ -128,7 +129,7 @@ func TestTerraformCodeInfrastructureInitialCredentials(t *testing.T) {
 		TerraformDir: terraformTempDir,
 		//VarFiles:     []string{"test/terratest.tfvars"},
 		Vars:     tfvars,
-		VarFiles: []string{path + "/local-vars.tfvars"},
+		VarFiles: []string{path + "/terratest.tfvars"},
 		EnvVars: map[string]string{
 			"AWS_DEFAULT_REGION": "ap-southeast-1",
 			//"TF_LOG":             "TRACE",
