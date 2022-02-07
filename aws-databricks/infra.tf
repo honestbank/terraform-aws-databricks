@@ -5,6 +5,7 @@
 ###############################################################################
 
 resource "aws_internet_gateway" "igw" {
+  count  = var.igw_id != null ? 0 : 1
   vpc_id = var.vpc_id
   tags = {
     Name = "${var.prefix}-databricks-igw"
@@ -63,6 +64,7 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route_table" "public" {
+  count  = var.igw_id != null ? 0 : 1
   vpc_id = var.vpc_id
   tags = {
     Name = "${var.prefix}-databricks-public"
@@ -71,9 +73,9 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route" "public_internet_gateway" {
-  route_table_id         = aws_route_table.public.id
+  route_table_id         = aws_route_table.public[0].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.igw.id
+  gateway_id             = var.igw_id != null ? var.igw_id : aws_internet_gateway.igw[0].id
 
   timeouts {
     create = "5m"
@@ -87,8 +89,9 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_route_table_association" "public" {
+  count          = var.igw_id != null ? 0 : 1
   subnet_id      = var.public_subnet_id
-  route_table_id = aws_route_table.public.id
+  route_table_id = aws_route_table.public[0].id
 }
 
 ###############################################################################
