@@ -73,7 +73,7 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route" "public_internet_gateway" {
-  count                  = var.igw_id != null ? 1 : 0
+  count                  = var.igw_id != null ? 0 : 1
   route_table_id         = aws_route_table.public[0].id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = var.igw_id != null ? var.igw_id : aws_internet_gateway.igw[0].id
