@@ -44,3 +44,9 @@ variable "public_subnet_id" {
   description = "Public Subnet ID used for creating igw"
   type        = string
 }
+
+variable "igw_id" {
+  description = "Internet Gateway ID for use with NAT Gateway"
+  type        = string
+  default     = null
+}
