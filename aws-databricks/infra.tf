@@ -199,7 +199,19 @@ module "vpc_endpoints" {
       tags = {
         Name = "${var.prefix}-sts-vpc-endpoint"
       }
-    },
+    }
+  }
+}
+
+module "vpc_kinesis_endpoint" {
+  count = var.enable_kinesis ? 1 : 0
+
+  source  = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
+  version = "3.2.0"
+
+  vpc_id             = var.vpc_id
+  security_group_ids = [aws_security_group.databricks_sg.id]
+  endpoints = {
     kinesis-streams = {
       service             = "kinesis-streams"
       private_dns_enabled = true
@@ -207,6 +219,6 @@ module "vpc_endpoints" {
       tags = {
         Name = "${var.prefix}-kinesis-vpc-endpoint"
       }
-    },
+    }
   }
 }

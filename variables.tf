@@ -40,3 +40,9 @@ variable "public_subnet_id" {
 variable "prefix" {
   description = "Prefix for databricks which is required so databricks can see resources. Can be prefixed as `prefix-someotherstring`"
 }
+
+variable "enable_kinesis" {
+  description = "Enable Kinesis for use with databricks (alternatively, you can use apache kafka)"
+  type        = bool
+  default     = false
+}

@@ -50,3 +50,9 @@ variable "igw_id" {
   type        = string
   default     = null
 }
+
+variable "enable_kinesis" {
+  description = "Enable Kinesis for use with databricks (alternative is to use apache kafka)"
+  type        = bool
+  default     = false
+}
