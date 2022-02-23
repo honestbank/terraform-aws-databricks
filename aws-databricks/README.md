@@ -135,8 +135,13 @@ module "aws-databricks" {
   private_subnet_ids = var.private_subnet_ids
 
   public_subnet_id = var.public_subnet_id
+
+  enable_kinesis = var.enable_kinesis
 }
 ```
+
+Note:
+Kinesis is an optional feature. If you enable it, you must have a Kinesis stream.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

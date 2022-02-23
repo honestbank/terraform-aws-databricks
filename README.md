@@ -14,7 +14,7 @@ See documentation here: [aws-databricks/README.md](aws-databricks/README.md)
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.73.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.74.3 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 
 ## Modules
@@ -43,6 +43,7 @@ See documentation here: [aws-databricks/README.md](aws-databricks/README.md)
 | <a name="input_databricks_account_id"></a> [databricks\_account\_id](#input\_databricks\_account\_id) | Databricks Account ID | `any` | n/a | yes |
 | <a name="input_databricks_account_password"></a> [databricks\_account\_password](#input\_databricks\_account\_password) | Databricks Account Password | `any` | n/a | yes |
 | <a name="input_databricks_account_username"></a> [databricks\_account\_username](#input\_databricks\_account\_username) | Databricks Account Username | `any` | n/a | yes |
+| <a name="input_enable_kinesis"></a> [enable\_kinesis](#input\_enable\_kinesis) | Enable Kinesis for use with databricks (alternatively, you can use apache kafka) | `bool` | `false` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for databricks which is required so databricks can see resources. Can be prefixed as `prefix-someotherstring` | `any` | n/a | yes |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | Private Subnet IDs used for databricks to know where to deploy ec2 instances | `set(string)` | n/a | yes |
 | <a name="input_public_subnet_id"></a> [public\_subnet\_id](#input\_public\_subnet\_id) | Public Subnet ID used for creating igw | `string` | n/a | yes |
