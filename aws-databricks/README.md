@@ -157,9 +157,9 @@ Kinesis is an optional feature. If you enable it, you must have a Kinesis stream
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.74.0 |
-| <a name="provider_databricks"></a> [databricks](#provider\_databricks) | 0.4.6 |
-| <a name="provider_databricks.mws"></a> [databricks.mws](#provider\_databricks.mws) | 0.4.6 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.74.3 |
+| <a name="provider_databricks"></a> [databricks](#provider\_databricks) | 0.4.9 |
+| <a name="provider_databricks.mws"></a> [databricks.mws](#provider\_databricks.mws) | 0.4.9 |
 | <a name="provider_null"></a> [null](#provider\_null) | 3.1.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.7.2 |
@@ -169,6 +169,7 @@ Kinesis is an optional feature. If you enable it, you must have a Kinesis stream
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_vpc_endpoints"></a> [vpc\_endpoints](#module\_vpc\_endpoints) | terraform-aws-modules/vpc/aws//modules/vpc-endpoints | 3.2.0 |
+| <a name="module_vpc_kinesis_endpoint"></a> [vpc\_kinesis\_endpoint](#module\_vpc\_kinesis\_endpoint) | terraform-aws-modules/vpc/aws//modules/vpc-endpoints | 3.2.0 |
 
 ## Resources
 
@@ -203,6 +204,7 @@ Kinesis is an optional feature. If you enable it, you must have a Kinesis stream
 | <a name="input_databricks_account_id"></a> [databricks\_account\_id](#input\_databricks\_account\_id) | Databricks Account ID | `any` | n/a | yes |
 | <a name="input_databricks_account_password"></a> [databricks\_account\_password](#input\_databricks\_account\_password) | Databricks Account Password | `any` | n/a | yes |
 | <a name="input_databricks_account_username"></a> [databricks\_account\_username](#input\_databricks\_account\_username) | Databricks Account Username | `any` | n/a | yes |
+| <a name="input_enable_kinesis"></a> [enable\_kinesis](#input\_enable\_kinesis) | Enable Kinesis for use with databricks (alternative is to use apache kafka) | `bool` | `false` | no |
 | <a name="input_igw_id"></a> [igw\_id](#input\_igw\_id) | Internet Gateway ID for use with NAT Gateway | `string` | `null` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for databricks which is required so databricks can see resources. Can be prefixed as `prefix-someotherstring` | `any` | n/a | yes |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | Private Subnet IDs used for databricks to know where to deploy ec2 instances | `set(string)` | n/a | yes |
