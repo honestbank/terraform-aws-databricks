@@ -7,7 +7,7 @@ resource "aws_s3_bucket_public_access_block" "root_storage_bucket" {
 }
 
 data "databricks_aws_bucket_policy" "this" {
-  bucket = var.root_bucket
+  bucket = aws_s3_bucket_public_access_block.root_storage_bucket.bucket
 }
 
 resource "aws_s3_bucket_policy" "root_bucket_policy" {
